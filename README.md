@@ -1,4 +1,4 @@
-# bWAPP
+# bWAPP Test
 
 This is just an instance of the OWASP [bWAPP project](http://www.itsecgames.com/) as a docker container.
 
