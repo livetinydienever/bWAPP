@@ -36,18 +36,18 @@ jobs:
           sudo apt-get install -f ./IDDast.deb
           sudo dast-attacker-cli -accept-eula yes -license-key 2510367b-c2f2-4f83-b722-0a3ec011e5c1 -output-json=results.json -output-html=results.html .scan/*.har
 
-      - name: "upload scan results"
+      - name: "upload json results"
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
         with:
-          name: IDD Scan Results
+          name: Vantage Prevent Scan JSON Results
           path: results.json
 
       - name: "upload html report"
         if: ${{ always() }}
         uses: actions/upload-artifact@v1
         with:
-          name: IDD Scan Report
+          name: Vantage Prevent Scan HTML Report
           path: results.html
       - name: "create issue"
         if: ${{ always() }}
