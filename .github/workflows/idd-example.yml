@@ -31,13 +31,10 @@ jobs:
           wget --quiet --wait=3 http://localhost:3005/install.php?install=yes
 
       - name: run security test        
-        env:
-          WHITEHAT_LICENSE_KEY: 2510367b-c2f2-4f83-b722-0a3ec011e5c1
         run: |
           wget https://github.com/whitehatsec-innovations/distribution/releases/latest/download/IDDast.deb          
-          sudo apt-get install -f ./IDDast.deb 
-          echo "KEY: $WHITEHAT_LICENSE_KEY"
-          sudo dast-attacker-cli -accept-eula yes -output-json=results.json -output-html=results.html .scan/*.har
+          sudo apt-get install -f ./IDDast.deb
+          sudo dast-attacker-cli -accept-eula yes -license-key 2510367b-c2f2-4f83-b722-0a3ec011e5c1 -output-json=results.json -output-html=results.html .scan/*.har
 
       - name: "upload scan results"
         if: ${{ always() }}
