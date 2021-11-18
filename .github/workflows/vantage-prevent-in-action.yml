@@ -41,7 +41,7 @@ jobs:
           name: Vantage Prevent Scan HTML Report
           path: results.html
           
-      - name: "create issue"
+      - name: create issue
         if: ${{ always() }}
         uses: JasonEtco/create-an-issue@v2
         env:
